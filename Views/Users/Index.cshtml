@@ -1,0 +1,35 @@
+@model BeltExam.Models.Users
+
+<h2>Enter your information</h2>
+<hr>
+<form asp-controller="Users" asp-action="Register" method="post">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control"/>
+    <span asp-validation-for="Name" class="p-3 mb-2 bg-danger text-white"></span>
+    <br>
+    <label asp-for="Alias"></label>
+    <input asp-for="Alias" class="form-control"/>
+    <span asp-validation-for="Alias" class="p-3 mb-2 bg-warning text-white"></span>
+    <br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" class="form-control"/>
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <!-- @if (ViewBag.Message != null)
+    {
+    <p class="text-danger">@ViewBag.Message </p>
+    } -->
+    <br>
+    <label asp-for="Password"></label>
+    <input asp-for="Password" class="form-control"/>
+    <span asp-validation-for="Password" class="text-danger"></span>
+    <br>
+    <label asp-for="Confirm"></label>
+    <input asp-for="Confirm" class="form-control"/>
+    <span asp-validation-for="Confirm" class="text-danger"></span>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <br>
+    <a href="/login">Already Registered?</a>
+</form>
+

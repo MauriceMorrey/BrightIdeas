@@ -1,0 +1,18 @@
+@model BeltExam.Models.Login
+
+<h2>Log in</h2>
+<hr>
+<form asp-controller="Users" asp-action="Login" method="post">
+    <label asp-for="Email"></label>
+    <input asp-for="Email" class="form-control"/>
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br>
+    <label asp-for="Password"></label>
+    <input asp-for="Password" class="form-control"/>
+    <span asp-validation-for="Password" class="text-danger"></span>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <br>
+    <a href="/">Need to Register?</a>
+</form>

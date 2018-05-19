@@ -1,0 +1,16 @@
+@model BeltExam.Models.Users
+
+<br>
+
+<p class="text-right">
+    <a href="/ideas" class="btn btn-primary">Bright Ideas</a>
+    <a href="/logout" class="btn btn-primary">Log Out</a>
+</p>
+<br>
+<h3>Name: @ViewBag.UserToShow.Name</h3>
+<h3>Alias: @ViewBag.UserToShow.Alias</h3>
+<h3>Email: @ViewBag.UserToShow.Email</h3>
+<br>
+<hr>
+<h4>Total number of Ideas: @ViewBag.UserToShow.Idea.Count</h4>
+<h4>Total number of Likes: @ViewBag.UserToShow.Likes.Count</h4>

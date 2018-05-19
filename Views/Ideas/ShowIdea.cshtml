@@ -1,0 +1,43 @@
+@model BeltExam.Models.Ideas
+
+<br>
+<p class="text-right">
+    <a href="/ideas" class="btn btn-primary">Bright Ideas</a>
+    <a href="/logout" class="btn btn-primary">Log Out</a>
+</p>
+<br>
+<h3><a href="/user/@ViewBag.IdeaToShow.Users.UserId">@ViewBag.IdeaToShow.Users.Alias</a> says:</h3>
+<textarea class="form-control" cols="2" rows="2">@ViewBag.IdeaToShow.Idea</textarea>
+<hr>
+
+<h3>People who liked this idea:</h3>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Alias</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  @*@{
+    foreach (var like in ViewBag.Likes)
+    {
+      <tr>
+        <td><a href="/user/@like.Users.UserId">@like.Users.Alias</a></td>
+        <td>@like.Users.Name</td>
+      </tr>
+    }
+  }*@
+   @if(ViewBag.Users.Count>0)
+       {
+           foreach(var user in ViewBag.Users)
+           {
+
+               <tr>
+                   <td><a href="/user/@user.UserId">@user.Alias</td>
+                   <td>@user.Name</td>
+               </tr>
+           }
+       }
+  </tbody>
+</table>

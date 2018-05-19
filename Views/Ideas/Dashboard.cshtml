@@ -1,0 +1,28 @@
+@model BeltExam.Models.Ideas
+
+<br>
+<h1>Hi,@ViewBag.CurrentUser.Name!</h1>
+<hr>
+<p class="text-right"><a href="/logout" class="btn btn-primary">Log Out</a></p>
+<br>
+<form asp-controller="Ideas" asp-action="CreateIdea" method="post">
+    <label asp-for="Idea"></label>
+    <textarea asp-for="Idea" class="form-control" cols="1" rows="1"></textarea><br><p class="text-right"><button type="submit" class="btn btn-primary"> Create Idea!</button></p>
+    <span asp-validation-for="Idea" class="p-3 mb-2 bg-danger text-white"></span>
+    <br>
+</form>
+
+@if(ViewBag.Ideas.Count>0)
+{
+    foreach(var idea in ViewBag.Ideas)
+    {
+       <h4><a href="/user/@idea.Users.UserId">@idea.Users.Alias</a> says: <textarea class="form-control" cols="2" rows="2">@idea.Idea</textarea></h4>
+       <h5><a href="/like/@idea.IdeaId">Like</a> <p class="text-right" ><a href="/idea/@idea.IdeaId">@idea.Likes.Count people</a> like this.</p>
+       @if(idea.Users.UserId == @ViewBag.CurrentUser.UserId)
+       {
+           <a href="/delete/@idea.IdeaId">Delete</a>
+       }
+       </h5>
+       <br>
+    }
+}
